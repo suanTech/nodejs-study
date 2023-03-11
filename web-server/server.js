@@ -39,17 +39,6 @@ const server = http.createServer((req, res) => {
   console.log(req.url, req.method);
   myEmitter.emit('log', `${req.url}\t${req.method}`, 'reqLog.txt')
 
-  //version 1
-  // let newPath;
-  // if(req.url === '/' || req.url === 'index.html') {
-  //   res.statusCode = 200;
-  //   res.setHeader('Content-Type', 'text/html');
-  //   newPath = path.join(__dirname, 'views', 'index.html');
-  //   fs.readFile(newPath, 'utf8', (err, data) => {
-  //     res.end(data)
-  //   })
-  // }
-  //version 2
   const extension = path.extname(req.url);
 
   let contentType;
